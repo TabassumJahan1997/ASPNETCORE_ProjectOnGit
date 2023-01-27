@@ -1,0 +1,37 @@
+﻿@model ASPNET_Core_Project.Models.Rank
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="card rounded-2">
+            <div class="card-header d-flex justify-content-center alert alert-info">
+                <h3>Add New Rank</h3>
+            </div>
+            <div class="card-body">
+
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="RankName" class="control-label"></label>
+                        <input asp-for="RankName" class="form-control" />
+                        <span asp-validation-for="RankName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    
+</div>
+

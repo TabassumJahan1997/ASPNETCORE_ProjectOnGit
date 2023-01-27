@@ -1,0 +1,147 @@
+﻿@model ASPNET_Core_Project.Models.MissionSoldierEntryVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="row">
+    <div class="col-8 m-auto">
+        <div class="card-header alert alert-primary">
+            <h3 class="text-center">Edit Mission Information</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" asp-controller="Missions" method="post" enctype="multipart/form-data">
+                <h4>Mission</h4>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MissionId" />
+                <div class="form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Budget" class="control-label"></label>
+                    <input asp-for="Budget" class="form-control" />
+                    <span asp-validation-for="Budget" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input type="hidden" asp-for="ImagePath"/>
+                    <input asp-for="ImageFile" class="form-control" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <h4>Assign Soldier</h4>
+                    <hr />
+                    <button asp-action="Create" asp-controller="Soldiers" value="" class="btn btn-primary">Add New Soldier</button>
+                </div>
+                <div class="card-header mb-2">
+                    <div class="d-flex justify-content-end">
+                        <a id="btnAdd" class="btn btn-primary">Add</a>
+                    </div>
+                </div>
+                <div class="card-body m-auto">
+                    <div id="SoldierContainer">
+                        @foreach (var record in Model.SoldierList)
+                        {
+                            <script>
+                                LoadSoldier(@record);
+                            </script>
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+            <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<form asp-action="Edit" asp-controller="Missions" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Mission</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="MissionId" />
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Budget" class="control-label"></label>
+                <input asp-for="Budget" class="form-control" />
+                <span asp-validation-for="Budget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="col-md-8 row">
+            <div class="col-6">
+                <h4>Soldier</h4>
+                <button asp-action="Create" asp-controller="Soldiers" value="" class="btn btn-primary">Add New Soldier</button>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <h4>Select Soldier</h4>
+                    <a id="btnAdd" class="btn btn-primary">Add</a>
+                </div>
+                <div id="SoldierContainer">
+                    @foreach (var record in Model.SoldierList)
+                    {
+                        <script>
+                            LoadSoldier(@record);
+                        </script>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+

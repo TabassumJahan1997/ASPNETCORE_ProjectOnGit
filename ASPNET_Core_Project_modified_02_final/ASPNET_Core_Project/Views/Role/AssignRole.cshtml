@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "AssignRole";
+}
+
+
+<div class="row">
+    
+</div>
+<div class="col-6 m-auto">
+    <div class="card-header alert alert-info ">
+        <h2 class="text-center">Assign Role to user</h2>
+        <h5 class="text-center text-info">@TempData["msg"]</h5>
+        <div class="d-flex justify-content-center">
+            <a asp-action="Index" asp-controller="Role" class="btn btn-outline-primary btn-sm">Create Role</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <form asp-action="AssignRole" asp-controller="Role" method="post">
+            <div class="row m-auto">
+                @*<div class="col-4 m-auto">*@
+                    <label class="col-form-label text-center">Select User</label>
+                    <select name="UserData" class="form-control">
+                        <option value=""></option>
+                        @foreach (var item in ViewBag.users)
+                        {
+                            <option class="@item.Email">@item.Email</option>
+                        }
+                    </select>
+               @* </div>*@
+                @*<div class="col-4 m-auto">*@
+                    <label class="col-form-label text-center">Select Role</label>
+                    <select name="RoleData" class="form-control">
+                        <option value=""></option>
+                        @foreach (var item in ViewBag.roles)
+                        {
+                            <option class="@item.NormalizedName">@item.NormalizedName</option>
+                        }
+                    </select>
+                @*</div>*@
+                @*<div class="col-3 m-auto">*@
+                    <button type="submit" class="btn btn-outline-primary mt-4">Assign Role</button>
+                @*</div>*@
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ASPNET_Core_Project.Models.Rank>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-8 m-auto">
+        <div class="card">
+            <div class="card-header alert alert-info d-flex justify-content-between">
+                <h3>All Ranks</h3>
+                <div>
+                    <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+                </div>
+            </div>
+            <div class="card-body">
+                
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RankName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RankName)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.RankId" class="btn btn-outline-warning">Edit</a>
+                                    @*<a asp-action="Details" asp-route-id="@item.RankId" class="btn btn-outline-info">Details</a>*@
+                                    <a asp-action="Delete" asp-route-id="@item.RankId" class="btn btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

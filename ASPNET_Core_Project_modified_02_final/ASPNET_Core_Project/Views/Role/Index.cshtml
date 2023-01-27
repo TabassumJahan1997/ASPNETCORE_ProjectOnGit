@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-6 m-auto">
+    <div class="card-header">
+        <h3 class="alert alert-info text-center">Create New Role</h3>
+        <div class="alert-warning">
+            <h5 class="display-4 text-center">@ViewBag.msg</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <form asp-action="CreateRole" asp-controller="Role" method="post">
+            <label class="col-form-label">Role Name</label>
+            <input type="text" name="UserRole" value="" class="form-control mb-3"/>
+            <button type="submit" class="btn btn-success">Create Role</button>
+            <a asp-action="AssignRole" asp-controller="Role" class="btn btn-outline-primary btn-sm">Back</a>
+        </form>
+    </div>
+</div>
+
+
+

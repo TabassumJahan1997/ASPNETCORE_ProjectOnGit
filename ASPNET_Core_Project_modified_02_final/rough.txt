@@ -1,0 +1,44 @@
+afifa123@gmail.com  --soldier
+Afifa123@gmail.com
+
+faiza123@gmail.com
+Faiza123@gmail.com
+
+jannatul123@gmail.com
+Jannatul123@gmail.com
+
+sharmin123@gmail.com
+Sharmin123@gmail.com
+
+afrin123@gmail.com
+Afrin123@gmail.com
+
+admin123@gmail.com --admin
+Admin123@gmail.com
+
+shababa123@gmail.com
+Shababa123@gmail.com
+
+mania123@gmail.com
+Mania123@gmail.com
+executive123@gmail.com  --executive
+Executive123@gmail.com
+
+admin
+executive
+soldier
+
+policy->AuthorizedOnly(Admin,Executive) ->SoldiersController
+Authorize ->AircraftController,MissionController
+Authorize(Role=Admin)-> RanksController	,RoleController
+
+
+
+
+
+
+
+
+
+
+
